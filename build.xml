@@ -1,4 +1,4 @@
-<project name="javasysmon" basedir="." default="package">
+<project name="javasysmon" xmlns:ivy="antlib:org.apache.ivy.ant" basedir="." default="package">
 
   <path id="test.classpath">
     <pathelement path="target/classes"/>
@@ -40,6 +40,13 @@
 	<attribute name="Main-Class" value="com.jezhumble.javasysmon.JavaSysMon"/>
       </manifest>
     </jar> 
+  </target>
+	
+  <target name="ivy-publish-local">
+  	<ivy:resolve />
+  	<ivy:publish update="true" resolver="local">
+      <artifacts pattern="target/[artifact].[ext]"/>
+    </ivy:publish>
   </target>
 
   <target name="test" depends="compile, compile-tests">
