@@ -28,7 +28,7 @@ class LinuxMonitor implements Monitor {
     private static final Pattern NUM_CPU_PATTERN =
             Pattern.compile("processor\\s+:\\s+(\\d+)", Pattern.MULTILINE);
     private static final Pattern CPU_FREQ_PATTERN =
-            Pattern.compile("model name[^@]*@\\s+([0-9.A-Za-z]*)", Pattern.MULTILINE);
+            Pattern.compile("model name.*?\\s+([0-9.a-zA-Z]*Hz)$", Pattern.MULTILINE);
     private static final Pattern UPTIME_PATTERN =
             Pattern.compile("([\\d]*).*");
     private static final Pattern PID_PATTERN =
